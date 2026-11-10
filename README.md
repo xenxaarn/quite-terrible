@@ -1,11 +1,15 @@
-### Sam Needs Your Idle Ram
+# Sam-Altman Needs Your Idle Ram
 
-### Compile:
+## Clone:
+```bash
+git clone https://github.com/xenxaarn/quite-terrible.git
+```
+## Compile:
 ```bash
 make
 ```
 
-### Run:
+## Run:
 ```bash
 ./main
 ```
