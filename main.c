@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
@@ -31,6 +32,7 @@ static const char *pick_quote(const char *path) {
 int main(void) {
     srand(time(NULL));
 
+    while (1){
     FILE *f = fopen("/proc/meminfo", "r"); //opening file as read mode
     if (!f)
     return 1;
@@ -53,6 +55,9 @@ int main(void) {
         pick_quote(percent < 30 ? "terrible/low.txt" :
                    percent < 70 ? "terrible/normal.txt" :
                                   "terrible/high.txt");
+    system("clear");
     printf("RAM: %.1f / %.1f GiB (%d%% used) %s\n", used_gib, total_gib, percent, quote);
+    sleep(5);
+    }
     return 0;
 }
