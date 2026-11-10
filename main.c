@@ -40,8 +40,8 @@ int main(void) {
     unsigned long total_kb = 0, avail_kb = 0;
     char line[256];
     while (fgets(line, sizeof line, f)) {
-        sscanf(line, "MemTotal: %lu kB", &total_kb);
-        sscanf(line, "MemAvailable: %lu kB", &avail_kb);
+        if(sscanf(line, "MemTotal: %lu kB", &total_kb) == 1) continue;
+        if(sscanf(line, "MemAvailable: %lu kB", &avail_kb) == 1) continue;
     }
     fclose(f);
 
@@ -57,7 +57,7 @@ int main(void) {
                                   "terrible/high.txt");
     system("clear");
     printf("RAM: %.1f / %.1f GiB (%d%% used) %s\n", used_gib, total_gib, percent, quote);
-    sleep(5);
+    sleep(1);
     }
     return 0;
 }
